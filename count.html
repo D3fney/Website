@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visitor Counter</title>
+  <script>
+    // Function to increment the visitor count
+    function incrementVisitorCount() {
+      // Check if the visitor count is stored in localStorage
+      if (localStorage.getItem('visitorCount')) {
+        // If it exists, increment the count by 1
+        var count = parseInt(localStorage.getItem('visitorCount'));
+        count += 1;
+        localStorage.setItem('visitorCount', count);
+      } else {
+        // If it doesn't exist, set the count to 1
+        localStorage.setItem('visitorCount', 1);
+      }
+    }
+
+    // Function to display the visitor count on the webpage
+    function displayVisitorCount() {
+      var count = localStorage.getItem('visitorCount');
+      document.getElementById('count').textContent = count;
+    }
+
+    // Increment the visitor count when the page loads
+    window.onload = function() {
+      incrementVisitorCount();
+      displayVisitorCount();
+    };
+  </script>
+</head>
+<body>
+  <h1>Visitor Counter</h1>
+  <p>Number of visitors: <span id="count"></span></p>
+</body>
+</html>

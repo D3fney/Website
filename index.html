@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Page</title>
+     <!-- <title>Visitor Count and Current Time Example</title> 
+    <script>
+      function incrementVisitorCount() {
+        if (typeof(Storage) !== "undefined") {
+          if (localStorage.visitorCount) {
+            localStorage.visitorCount = Number(localStorage.visitorCount) + 1;
+          } else {
+            localStorage.visitorCount = 1;
+          }
+        } else {
+          console.log("Sorry, your browser does not support web storage.");
+        }
+      }
+  
+      function getUniqueVisitors() {
+        if (typeof(Storage) !== "undefined") {
+          if (!localStorage.uniqueVisitors) {
+            document.cookie = "visited=true";
+            localStorage.uniqueVisitors = "1";
+          } else if (!document.cookie.includes("visited=true")) {
+            document.cookie = "visited=true";
+            localStorage.uniqueVisitors = Number(localStorage.uniqueVisitors) + 1;
+          }
+          
+          document.getElementById("visitorCount").textContent = localStorage.uniqueVisitors;
+        } else {
+          console.log("Sorry, your browser does not support web storage.");
+        }
+      }
+  
+      function showdate() {
+        var d = new Date();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var s = d.getSeconds();
+        document.getElementById("client-date").innerHTML = h + ':' + m + ':' + s;
+        setTimeout(showdate, 1000);
+      }
+  
+      window.onload = function() {
+        showdate();
+        getUniqueVisitors();
+        incrementVisitorCount();
+      }; -->
+
+      <div id="visit-counter">
+        <h2>Page Visit Counter </h2>
+        <p>Number of visits: <span id="counter">0</span> </p>
+</div>
+
+<div id="server-time">
+<h2>Server time</h2>
+<p id="time"></p>
+
+</div>
+
+      <script> 
+      
+      var counter = parseInt(localStorage.getItem("visitCounter")) || 0;
+      counter++;
+      document.getElementById("counter").textContent = counter;
+      localStorage.setItem("visitCounter",counter.toString());
+
+      function updateServerTime() {
+        var date = new Date();
+        var timeElement = document.getElementById("time");
+        timeElement.textContent = date.toLocaleTimeString();
+      }
+
+      setInterval(updateServerTime, 1000);
+      </script>
+  </head>
+
+</html>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    /*  background-image: url("");  Replace with your background image URL or path */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: lemonchiffon;
+    }
+
+    header {
+      background-color: #024732;
+      padding: 10px;
+      color: #fff;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      margin: 20px;
+    }
+
+    section {
+      width: 555%;
+      background-color: rgb(255, 255, 255);
+      padding: 40px;
+      margin: 150px;
+    }
+
+    section h2 {
+      color: #043c23;
+    }
+    p{
+      font-size: larger;
+    }
+  </style>
+</head>
+<body  onload="showdate()">
+<p id="client-date"></p>>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="qualification.html">Qualification</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="hobbies.html">Hobby</a></li>
+        <li><a href="achievement.html">Achievements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome to my website! </h2>
+      <p> I am Defney Hazel Dsouza, a Computer Science undergraduate Engineer.<br>
+        Passionate about Full stack web development. 
+        <br><i><b>"Be 1% better every day"</b></i>
+         is the motto i live by.
+       <br> 
+        </p>
+      </section>
+   
+  </main>
+<!--  <p>Number of visitors: <span id="count"></span></p> -->
+</body>
+</html>
